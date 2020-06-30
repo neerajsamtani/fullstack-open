@@ -13,18 +13,14 @@ const create = newPerson => (
         .then(response => response.data)
 )
 
-const update = (person, id) => {
-    return (
-        axios
-            .put(`${url}/${id}`, person)
-            .catch(response => console.log(response.data))
-    )
-}
+const update = (person, id) => (
+    axios
+        .put(`${url}/${id}`, person)
+)
 
 const deletePerson = (person) => (
     axios
         .delete(`${url}/${person.id}`)
-        .catch(response => console.log(response.data))
 )
 
 export default { getAll, create, update, deletePerson }
