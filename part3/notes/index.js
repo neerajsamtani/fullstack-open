@@ -5,6 +5,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
@@ -98,8 +99,11 @@ const unknownEndpoint = (request, response) => {
 }
 
 app.use(unknownEndpoint)
-
+// https://murmuring-retreat-26820.herokuapp.com/
 const port = process.env.PORT || 3001
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)
 })
+
+// Use the following command to get Windows to run bash as its shell in npm
+// npm config set script-shell "C:\\Program Files\\git\\bin\\bash.exe"
